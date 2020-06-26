@@ -1,0 +1,29 @@
+{
+  "name": "igda-ejam",
+  "version": "1.0.0",
+  "description": "game jam project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "http-server": "http-server ./public -p 8080 -c-1 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calemdar/IGDA-eJam.git"
+  },
+  "keywords": [
+    "IGDA",
+    "Game",
+    "Jam"
+  ],
+  "author": "Cem Alemdar, Ertugrul Alemdar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calemdar/IGDA-eJam/issues"
+  },
+  "homepage": "https://github.com/calemdar/IGDA-eJam#readme",
+  "dependencies": {
+    "http-server": "^0.12.3",
+    "pixi.js": "^5.3.0"
+  }
+}
