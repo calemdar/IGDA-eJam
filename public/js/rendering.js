@@ -1,10 +1,11 @@
+/*
 let pixiApp,
     renderer = pixiApp.renderer,
     stage;
 
 let size = [window.innerWidth, window.innerHeight];
 let ratio = size[0] / size[1];
-/*
+
 let Rendering = function() {
 
     if(!pixiApp){

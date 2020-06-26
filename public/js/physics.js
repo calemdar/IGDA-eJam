@@ -3,7 +3,7 @@ let Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Bodies = Matter.Bodies;
-let engine;
+let engine, renderer;
 
 let Physics = function(){
 
@@ -11,19 +11,37 @@ let Physics = function(){
     engine = Engine.create();
 
     // create a renderer
-    let render = Render.create({
+    renderer = Render.create({
         element: document.body,
         engine: engine,
-        width: window.innerWidth,
-        height: window.innerHeight
+        options: {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            background: "#2282bb",
+            wireframes: false,
+            showPositions: true,
+            showMousePosition: true
+        }
+        
 
     });
     
 
     // create two boxes and a ground
-    let boxA = Bodies.rectangle(400, 200, 80, 80);
+    let boxA = Bodies.rectangle(400, 200, 80, 80, {
+        render: {
+            sprite: {
+                texture: "../img/husky.png",
+                xScale: 0.25,
+                yScale: 0.25
+            }
+        }
+    });
     let boxB = Bodies.rectangle(450, 50, 80, 80);
     let ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
+
+    // add textures
+
 
     // add all of the bodies to the world
     World.add(engine.world, [boxA, boxB, ground]);
@@ -32,6 +50,6 @@ let Physics = function(){
     Engine.run(engine);
 
     // run the renderer
-    Render.run(render);
+    Render.run(renderer);
 }
 //module.exports = Physics;

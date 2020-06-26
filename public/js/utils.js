@@ -1,3 +1,5 @@
+let windowSize = [window.innerWidth, window.innerHeight];
+let aspectRatio = size[0] / size[1];
 let resize = function() {
 
     if (window.innerWidth / window.innerHeight >= ratio) {
@@ -7,8 +9,8 @@ let resize = function() {
         let w = window.innerWidth;
         let h = window.innerWidth / ratio;
     }
-    pixiApp.renderer.view.style.width = w + 'px';
-    pixiApp.renderer.view.style.height = h + 'px';
+    renderer.options.width = w + 'px';
+    renderer.options.height = h + 'px';
 }
 
 let createObj = function({name, position=vec2(0,0), scale=vec2(1.0, 1.0), anchor=1, mass=1, sprite=1, followSprite=1, physics=1}){
@@ -19,7 +21,7 @@ let createObj = function({name, position=vec2(0,0), scale=vec2(1.0, 1.0), anchor
 			return object;
 		}
 
-		object = { name, position, scale, anchor, mass, sprite, followSprite, physics };
+		object = { name, position, scale, anchor, mass, sprite, physics };
 
 		return object;
 }
@@ -30,9 +32,7 @@ let renderObject = (object) => {
     object.sprite.anchor = object.anchor;
     object.sprite.position.x = physicsPos.x;
     object.sprite.position.y = physicsPos.y;
-
-    object.followSprite.anchor = object.anchor;
-    object.followSprite.position.x = physicsPos.x;
-    object.followSprite.position.y = physicsPos.y;
+    object.sprite.angle = physics.angle;
+    
 };
 window.onresize = resize;

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "http-server": "http-server ./public -p 8080 -c-1 -o"
+    "run": "http-server ./public -p 8080 -c-1 -o"
   },
   "repository": {
     "type": "git",
